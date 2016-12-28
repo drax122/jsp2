@@ -1,0 +1,7 @@
+projekt2\rest\GraczResource.class
+projekt2\domain\Druzyna.class
+projekt2\domain\Gracz.class
+projekt2\rest\DruzynaResource.class
+projekt2\rest\JAXRSConfiguration.class
+projekt2\service\DruzynaManager.class
+projekt2\service\GraczManager.class

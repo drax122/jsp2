@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+  <persistence-unit name="muPU" transaction-type="JTA">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <jta-data-source>java:app/data</jta-data-source>
+    <class>projekt2.domain.Druzyna</class>
+    <class>projekt2.domain.Druzyna</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <!--Hibernate properties-->
+      <property name="hibernate.show_sql" value="false"/>
+      <property name="hibernate.format_sql" value="false"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+    </properties>
+  </persistence-unit>
+</persistence>

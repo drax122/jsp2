@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+  <persistence-unit name="Test" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>projekt2.domain.Druzyna</class>
+    <class>projekt2.domain.Druzyna</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <!--Hibernate properties-->
+      <property name="hibernate.show_sql" value="false"/>
+      <property name="hibernate.format_sql" value="false"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://drax1224.unixstorm.org/drax1224_base"/>
+      <property name="javax.persistence.jdbc.user" value="drax1224_base"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="drax122"/>
+    </properties>
+  </persistence-unit>
+</persistence>
