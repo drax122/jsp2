@@ -39,16 +39,18 @@ public class DruzynaResource {
             @FormParam("zalozyciel") String zal,
             @FormParam("img") String img)
     {
-        Druzyna d = new Druzyna();
-
-        d.setNazwaDruzyny(nazwa);
-        d.setLiczbaGraczy(ilosc);
-        d.setZalozyciel(zal);
-        d.setImg(img);
+        Druzyna d = new Druzyna(nazwa,zal,ilosc,img);
         manager.add(d);
 
         return d;
     }
+    @GET
+    @Path("/view/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Druzyna view(@PathParam("id") long id) {
+    	 return manager.getDruzyna(id);
+    }
+    
 
 
 

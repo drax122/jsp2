@@ -12,13 +12,16 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class DruzynaManager {
-    @PersistenceContext
+    @PersistenceContext()
     EntityManager lol;
 
     public void add(Druzyna d){
         d.setId_druzyna(null);
         lol.persist(d);
         lol.flush();
+    }
+    public Druzyna getDruzyna(Long id) {
+	return lol.find(Druzyna.class, id);
     }
     public void edit(Druzyna druzyna, String nazwaDruzyny, String Zalozyciel, int liczbaGraczy, String img){
         druzyna = lol.find(Druzyna.class, druzyna.getId_druzyna());
