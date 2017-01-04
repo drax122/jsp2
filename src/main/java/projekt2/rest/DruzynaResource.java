@@ -27,9 +27,10 @@ public class DruzynaResource {
     @GET
     @Path("/getAll")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Druzyna> getDruzyny() {
+    public List<Druzyna> getAll() {
         return manager.getAll();
     }
+    
     @POST
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)

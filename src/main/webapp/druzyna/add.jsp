@@ -8,24 +8,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <jsp:include page="../page/head.jsp" />
     </head>
     <body>
-        <h1>Hello World!221</h1>
-        
-  <form action="${pageContext.request.contextPath}/rest/druzyna/add" method="POST">
-  Nazwa:<br>
-  <input type="text" name="nazwadruzyny" value=""><br>
-  Ilosc graczy:<br>
-  <input type="text" name="iloscgraczy" value=""><br><br>
-  zal:<br>
-  <input type="text" name="zalozyciel" value=""><br><br>
-  img:<br>
-  <input type="text" name="img" value=""><br><br>
-  <input type="submit" value="Submit">
-</form>
-        
-        
+        <jsp:include page="../page/nav.jsp" />
+        <form action="${pageContext.request.contextPath}/rest/druzyna/add" method="POST">
+            Nazwa:<br>
+                <input type="text" name="nazwadruzyny" value=""><br>
+            Ilość graczy:<br>
+                <input type="text" name="iloscgraczy" value=""><br><br>
+            Założyciel:<br>
+                <input type="text" name="zalozyciel" value=""><br><br>
+            Link do obrazka :<br>
+                <input type="text" name="img" value=""><br><br>
+                <input type="submit" value="Submit">
+        </form>            
     </body>
 </html>
