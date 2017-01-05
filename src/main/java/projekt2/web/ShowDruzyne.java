@@ -7,12 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 import projekt2.domain.Druzyna;
 
 import projekt2.service.DruzynaManager;
 
-@WebServlet(urlPatterns = "/ShowDruzyna")
+@WebServlet(urlPatterns = "/ShowDruzyne/*")
 public class ShowDruzyne extends HttpServlet{
 	
     @EJB
@@ -20,7 +19,8 @@ public class ShowDruzyne extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("IDD", "351");
+        Integer id = Integer.parseInt(request.getParameter("id"));
+        request.setAttribute("id", id);
         request.getRequestDispatcher("/druzyna/overview.jsp").forward(request, response);
     }
 	
