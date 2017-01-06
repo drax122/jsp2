@@ -234,7 +234,12 @@ th {
     page-break-inside: avoid;
   }
   img {
-    max-width: 100% !important;
+    max-height: 100%;
+  }
+  .mydiv{
+    max-width: 80%;
+    max-height: 80%;
+    display:block;
   }
   p,
   h2,
