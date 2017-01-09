@@ -45,6 +45,7 @@ public class DruzynaResource {
 
         return d;
     }
+    
     @GET
     @Path("/view/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,6 +53,26 @@ public class DruzynaResource {
     	 return manager.getDruzyna(id);
     }
     
+    
+    @PUT
+    @Path("/edit/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Druzyna edit(
+            @PathParam("id") Long id,
+            @FormParam("lgraczy") Integer ilosc,
+            @FormParam("nazwaDruzyny") String nazwa,
+            @FormParam("zal") String zal,
+            @FormParam("link") String linkd )           
+    {
+ 	Druzyna d = new Druzyna();
+	d = manager.getDruzyna(id);
+	manager.edit(d, nazwa, zal, ilosc, linkd);
+
+        return d;
+    }
+      
+    
+
 
 
 

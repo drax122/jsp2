@@ -40,4 +40,5 @@ public class DruzynaManager {
     public List<Druzyna> getAll(){
         return lol.createNamedQuery("druzyna.all").getResultList();
     }
+    
 }

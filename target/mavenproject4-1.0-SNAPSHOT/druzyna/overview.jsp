@@ -11,7 +11,7 @@
 			$.ajax
 				(
                                     {  
-					url: '${pageContext.request.contextPath}/rest/druzyna/view/<%=request.getAttribute("id")%>',
+					url: '${pageContext.request.contextPath}/rest/druzyna/view/${id}',
 					type: 'GET',                         
 					success: function(w) {
                                             var fulllink = '${pageContext.request.contextPath}/ShowDruzyne/?id='+ w.id_druzyna;
@@ -51,7 +51,7 @@
 			$.ajax
 				(
                                     {  
-					url: '${pageContext.request.contextPath}/rest/gracz/allFromDruzyna/<%=request.getAttribute("id")%>',
+					url: '${pageContext.request.contextPath}/rest/gracz/allFromDruzyna/${id}',
 					type: 'GET',                         
 					success: function(g) {
                                             for(var i=0;i<g.length;i++){
@@ -64,15 +64,41 @@
                                             
                                                 var td2 = document.createElement("td");
                                                 td2.innerHTML = g[i].pensja;
+                                                
+                                                var td3 = document.createElement("td");
+                                                
+                                                var fulllink = '${pageContext.request.contextPath}/EditGracz/?id='+ g[i].id_gracz;
+                                                var link = document.createElement('a');
+                                                link.className = 'btn btn-default btn-sm';
+                                                link.title = 'Edytuj gracza';
+                                                var span = document.createElement('span');
+                                                span.className = 'glyphicon glyphicon-pencil';
+                                                
+                                                link.setAttribute("href", fulllink);
+                                                link.appendChild(span);
+                                                td3.appendChild(link);
+                                                
+                                                var td4 = document.createElement("td");
+                                                var fulllink2 = '${pageContext.request.contextPath}/DeleteGracz/?id='+ g[i].id_gracz;
+                                                var link2 = document.createElement('a');
+                                                link2.className = 'btn btn-default btn-sm';
+                                                link2.title = 'Usuń gracza';
+                                                var span2 = document.createElement('span');
+                                                span2.className = 'glyphicon glyphicon-remove';
+                                                
+                                                link2.setAttribute("href", fulllink2);
+                                                link2.appendChild(span2);
+                                                td4.appendChild(link2);                                               
                                             
                                                 tr.appendChild(td1);
                                                 tr.appendChild(td2);
                                                 tr.appendChild(td);
-                                            
+                                                tr.appendChild(td3);
+                                                tr.appendChild(td4);
                                                $('#tabelaGraczy').append(tr);
                                             }
                                         }
-                                    }
+                                    }   
                                             
 				);
 			}
@@ -102,9 +128,8 @@
                 
                 <li class="list-group-item">
                 <p class="text-center">
-                <a href="#" title="Edytuj daną drużynę"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
-                <a href="#" title="Dodaj nowego gracza" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span></a>
-                <a href="#" title="Usuń drużynę" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span></a>
+                <a href="${pageContext.request.contextPath}/EditDruzyna/?id=${id}" title="Edytuj daną drużynę"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a href="${pageContext.request.contextPath}/DeleteDruzyna/?id=${id}" title="Usuń drużynę" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span></a>
                 </p>
                 </li>
 
@@ -113,7 +138,7 @@
             </div>
             <div class="col-xs-6 col-md-9">
                 <div class="panel panel-default">
-                  <div class="panel-heading">Lista graczy</div>
+                    <div class="panel-heading"><b>Lista graczy</b> <p class="text-right"><a href="${pageContext.request.contextPath}/AddGracz/${id}" title="Dodaj nowego gracza" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span></a></p></div>
                      <table class="table" id="tabelaGraczy">
                          <tr>
                         <th><strong>Nickname</strong></th>
@@ -122,19 +147,6 @@
                         <th><strong>Edytuj gracza</strong></th>
                         <th><strong>Usuń gracza</strong></th>
                         <th><strong></strong></th>
-                        </tr>       
-                        
-                        <tr>
-                            <td><h5 style="font-size: larger"> #NICK1 </h5></td>
-                            <td><h5 style="font-size: larger"> #PENSJA1 </h5></td>
-                            <td><h5 style="font-size: larger"> #DYWIZJA1 </h5></td>
-                            <td><a title="Edytuj gracza" href="#" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </a>
-                            </td>
-                            <td><a title="Usuń gracza" href="" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>   
-                            </td>
                         </tr>
                        
                     </table>

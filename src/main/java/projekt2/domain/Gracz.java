@@ -33,7 +33,7 @@ public class Gracz implements Serializable {
     private int Pensja;
     private String Dywizja;
     
-    @JsonIgnore
+    
     private Druzyna druzyna;
 
     public Gracz(){ super(); }
