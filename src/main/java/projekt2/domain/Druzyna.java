@@ -1,5 +1,7 @@
 package projekt2.domain;
-import javax.persistence.CascadeType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import org.codehaus.jackson.annotate.JsonIgnore;
+
 /**
  * @author draxeer
  */
@@ -16,18 +18,21 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 
+
 @Entity
 @NamedQueries({
         @NamedQuery(name = "druzyna.all", query = "Select d from Druzyna d")
 })
-public class Druzyna {
 
+public class Druzyna implements Serializable {
     private Long id_druzyna;
     private String nazwaDruzyny;
     private String Zalozyciel;
     private Integer LiczbaGraczy;
     private String Img;
-    private List<Gracz> listaGraczy = new ArrayList<Gracz>();
+    
+    @JsonIgnore
+    private List<Gracz> listaGraczy = new ArrayList<>();
 
     public Druzyna(){ super(); }
 
@@ -38,10 +43,7 @@ public class Druzyna {
         this.LiczbaGraczy = liczbaGraczy;
         this.Img = img;
         this.listaGraczy = new ArrayList<Gracz>();
-    }
-    public void dodajGracza(String nick, int pensja, String dyw) {
-        Gracz Nowy = new Gracz(nick, pensja, dyw);
-        listaGraczy.add(Nowy);
+        
     }
     // AUTO GENERATED
     public String getZalozyciel() {
@@ -58,22 +60,24 @@ public class Druzyna {
     public String getNazwaDruzyny() {
         return nazwaDruzyny;
     }
-
-    @OneToMany(mappedBy = "druzyna", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    
+    @OneToMany(mappedBy = "druzyna", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JsonIgnore
     public List<Gracz> getListaGraczy() {
         return listaGraczy;
     }
     public String getImg() { return Img; }
+    
     public void setListaGraczy(List<Gracz> listaGraczy) {
         this.listaGraczy = listaGraczy;
     }
     public void setZalozyciel(String zalozyciel) {
         Zalozyciel = zalozyciel;
     }
-    public void setLiczbaGraczy(Integer liczbaGraczy) {LiczbaGraczy = liczbaGraczy;}
+    public void setLiczbaGraczy(Integer liczbaGraczy) {
+        this.LiczbaGraczy = liczbaGraczy;}
     public void setImg(String img) {
-        Img = img;
+        this.Img = img;
     }
     public void setNazwaDruzyny(String nazwaDruzyny) {
         this.nazwaDruzyny = nazwaDruzyny;

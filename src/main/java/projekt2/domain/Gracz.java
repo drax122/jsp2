@@ -5,7 +5,9 @@
  */
 package projekt2.domain;
 
-import projekt2.domain.Druzyna;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,19 +17,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+
 /**
  *
  * @author draxeer
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "gracz.all", query = "Select g from Gracz g")
+        @NamedQuery(name = "gracz.all", query = "Select g from Gracz g"),
+        @NamedQuery(name = "gracz.allFrom", query = "Select g from Gracz g WHERE g.druzyna = :d")
 })
-public class Gracz {
+public class Gracz implements Serializable {
     private Long id_gracz;
-    private String Nickname = "s";
-    private int Pensja = 100;
-    private String Dywizja = "s";
+    private String Nickname;
+    private int Pensja;
+    private String Dywizja;
+    
+    @JsonIgnore
     private Druzyna druzyna;
 
     public Gracz(){ super(); }
@@ -40,9 +46,12 @@ public class Gracz {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId_gracz(){return id_gracz;}
+    
     public String getNickname(){return Nickname;}
     public int getPensja() { return Pensja;}
     public String getDywizja(){return Dywizja;}
+    
+    
     @ManyToOne
     @JoinColumn(name = "id_druzyna", nullable = false)
     public Druzyna getDruzyna(){return druzyna;}

@@ -43,7 +43,42 @@
 				);
 			}
 		);
-	</script>            
+	</script>
+        
+        <script>
+		$(document).ready(function()
+			{	
+			$.ajax
+				(
+                                    {  
+					url: '${pageContext.request.contextPath}/rest/gracz/allFromDruzyna/<%=request.getAttribute("id")%>',
+					type: 'GET',                         
+					success: function(g) {
+                                            for(var i=0;i<g.length;i++){
+                                                var tr = document.createElement("tr");                                 
+                                                var td = document.createElement("td");
+                                                td.innerHTML = g[i].dywizja;
+                                            
+                                                var td1 = document.createElement("td");
+                                                td1.innerHTML = g[i].nickname;
+                                            
+                                                var td2 = document.createElement("td");
+                                                td2.innerHTML = g[i].pensja;
+                                            
+                                                tr.appendChild(td1);
+                                                tr.appendChild(td2);
+                                                tr.appendChild(td);
+                                            
+                                               $('#tabelaGraczy').append(tr);
+                                            }
+                                        }
+                                    }
+                                            
+				);
+			}
+		);
+	</script>  
+        
         
     </head>
     <body>
@@ -78,8 +113,9 @@
             </div>
             <div class="col-xs-6 col-md-9">
                 <div class="panel panel-default">
-                         <div class="panel-heading">Lista graczy</div>
-                     <table class="table"><tr>
+                  <div class="panel-heading">Lista graczy</div>
+                     <table class="table" id="tabelaGraczy">
+                         <tr>
                         <th><strong>Nickname</strong></th>
                         <th><strong>Pensja</strong></th>
                         <th><strong>Dywizja</strong></th>
@@ -100,7 +136,7 @@
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>   
                             </td>
                         </tr>
-                        
+                       
                     </table>
             </div>
         </div>

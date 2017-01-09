@@ -27,5 +27,13 @@ public class GraczResource {
     private GraczManager gman;
     @EJB
     private DruzynaManager dman;
+    
+    @GET
+    @Path("/allFromDruzyna/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Gracz> view(@PathParam("id") long id) {
+    	 return gman.getAllDruzyna(id);
+    }
+
 
 }
