@@ -71,7 +71,7 @@
         </div>	
 	<div class="form-group text-center">
             <button id="dodaj" type="submit" class="btn btn-primary">Dodaj</button>
-            <a href="${pageContext.request.contextPath}/ShowDruzyne/${id}" class="btn btn-default" role="button">Wróć</a>
+            <a href="${pageContext.request.contextPath}/ShowDruzyne/?id=${id}" class="btn btn-default" role="button">Wróć</a>
 	</div>
 
             	</form>          

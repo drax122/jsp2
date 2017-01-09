@@ -34,7 +34,7 @@ public class GraczManager {
     
     public void del(Gracz g){
         g = lol.find(Gracz.class, g.getId_gracz());
-        Druzyna druzyna = lol.find(Druzyna.class, g.getDruzyna());
+        Druzyna druzyna = lol.find(Druzyna.class, g.getDruzyna().getId_druzyna());
         druzyna.getListaGraczy().remove(g);
         lol.remove(g);
     }
@@ -43,6 +43,9 @@ public class GraczManager {
         
         return lol.createNamedQuery("gracz.allFrom").setParameter("d",druzyna).getResultList();
     } 
+    public Gracz getGracz(Long id) {
+	return lol.find(Gracz.class, id);
+    }
     
     
 }

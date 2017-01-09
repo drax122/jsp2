@@ -1,10 +1,14 @@
-C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\domain\Gracz.java
-C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\service\DruzynaManager.java
-C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\rest\DruzynaResource.java
+C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\web\DeleteDruzyna.java
 C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\web\EditDruzyne.java
 C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\rest\JAXRSConfiguration.java
 C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\web\ShowDruzyne.java
 C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\web\AddDruzyne.java
+C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\web\EditGracz.java
+C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\domain\Gracz.java
+C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\web\DeleteGracz.java
+C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\service\DruzynaManager.java
+C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\rest\DruzynaResource.java
+C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\web\AddGracz.java
 C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\service\GraczManager.java
 C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\domain\Druzyna.java
 C:\Users\draxeer\Documents\NetBeansProjects\mavenproject4\src\main\java\projekt2\rest\GraczResource.java

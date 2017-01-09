@@ -15,7 +15,8 @@ import projekt2.service.DruzynaManager;
 public class ShowDruzyne extends HttpServlet{
 	
     @EJB
-    private DruzynaManager om = new DruzynaManager();
+    private DruzynaManager dm = new DruzynaManager();
+    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

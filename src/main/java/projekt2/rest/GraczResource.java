@@ -34,6 +34,8 @@ public class GraczResource {
     public List<Gracz> view(@PathParam("id") long id) {
     	 return gman.getAllDruzyna(id);
     }
+    
+    
 
 
 }

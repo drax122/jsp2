@@ -79,7 +79,7 @@
                                                 td3.appendChild(link);
                                                 
                                                 var td4 = document.createElement("td");
-                                                var fulllink2 = '${pageContext.request.contextPath}/DeleteGracz/?id='+ g[i].id_gracz;
+                                                var fulllink2 = '${pageContext.request.contextPath}/DeleteGracz/?id='+ g[i].id_gracz + '&id2=${id}';
                                                 var link2 = document.createElement('a');
                                                 link2.className = 'btn btn-default btn-sm';
                                                 link2.title = 'Usuń gracza';
@@ -138,7 +138,7 @@
             </div>
             <div class="col-xs-6 col-md-9">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><b>Lista graczy</b> <p class="text-right"><a href="${pageContext.request.contextPath}/AddGracz/${id}" title="Dodaj nowego gracza" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span></a></p></div>
+                    <div class="panel-heading"><b>Lista graczy</b> <p class="text-right"><a href="${pageContext.request.contextPath}/AddGracz/?id=${id}" title="Dodaj nowego gracza" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span></a></p></div>
                      <table class="table" id="tabelaGraczy">
                          <tr>
                         <th><strong>Nickname</strong></th>
