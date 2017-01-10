@@ -35,7 +35,22 @@ public class GraczResource {
     	 return gman.getAllDruzyna(id);
     }
     
-    
+    @PUT
+    @Path("/edit/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Gracz edit(
+            @PathParam("id") Long id,
+            @FormParam("nickname") String nick,
+            @FormParam("pensja") Integer pensja,
+            @FormParam("dywizja") String dywizja,
+            @FormParam("id_druzyna") Long id_Druzyna)
+    {
+	Gracz g = new Gracz();
+	g = gman.getGracz(id);
+        gman.edit(nick, pensja, dywizja, g, dman.getDruzyna(id_Druzyna));
+
+       return g;
+    }
 
 
 }

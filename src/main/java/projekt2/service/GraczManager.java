@@ -8,7 +8,6 @@ import projekt2.domain.Gracz;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 /**
  *
  * @author draxeer
@@ -22,9 +21,9 @@ public class GraczManager {
         g.setId_gracz(null);
         lol.persist(g);
     }
-    public void edit(Gracz g, String nickname, Integer Pensja, String Dywizja, Druzyna d){
+    public void edit(String nickname, Integer Pensja, String Dywizja, Gracz g, Druzyna d){
         g = lol.find(Gracz.class, g.getId_gracz());
-        Druzyna druzyna = lol.find(Druzyna.class, g.getDruzyna());
+        Druzyna druzyna = lol.find(Druzyna.class, g.getDruzyna().getId_druzyna());
         g.setDywizja(Dywizja);
         g.setNickname(nickname);
         g.setPensja(Pensja);

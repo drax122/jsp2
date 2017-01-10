@@ -78,8 +78,7 @@
             <button id="edytuj" type="submit" class="btn btn-primary">Edytuj</button>
             <a href="${pageContext.request.contextPath}/ShowDruzyne/?id=${DruzynaEdit.getId_druzyna()}" class="btn btn-default" role="button">Wróć</a>
 	</div>
-
-            	</form>
+        </form>
        
        
        
