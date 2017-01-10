@@ -28,6 +28,27 @@ public class GraczResource {
     @EJB
     private DruzynaManager dman;
     
+    @POST
+    @Path("/add")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Gracz add(
+            @FormParam("druzyna") Long id,
+            @FormParam("nickname") String nickname,
+            @FormParam("pensja") Integer pensja,
+            @FormParam("dywizja") String dywizja)
+    {
+	Gracz g = new Gracz();
+	g.setNickname(nickname);
+	g.setPensja(pensja);
+	g.setDywizja(dywizja);
+        
+	g.setDruzyna(dman.getDruzyna(id));
+        gman.add(g);
+
+        return g;
+    }
+    
+    
     @GET
     @Path("/allFromDruzyna/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -49,8 +70,15 @@ public class GraczResource {
 	g = gman.getGracz(id);
         gman.edit(nick, pensja, dywizja, g, dman.getDruzyna(id_Druzyna));
 
-       return g;
+        return g;
     }
-
-
+    
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void delete(@PathParam("id") long id)
+    {
+        gman.del(gman.getGracz(id));
+    }
+    
 }

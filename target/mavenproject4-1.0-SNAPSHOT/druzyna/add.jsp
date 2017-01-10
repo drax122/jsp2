@@ -23,10 +23,8 @@
 						    data:
 							{
 								nazwadruzyny: document.getElementById('nazwa').value,
-                                                                iloscgraczy: document.getElementById('liczba').value,
 								zalozyciel: document.getElementById('zal').value,
-								img: document.getElementById('link').value
-								
+								img: document.getElementById('link').value	
 							},
 						    success: function() { document.location.replace("${pageContext.request.contextPath}/ViewDruzyny.jsp"); },
  						    error: function() { alert("Skiepsciles"); }
@@ -42,7 +40,7 @@
     </head>
     <body>
         <jsp:include page="../page/nav.jsp" />
-<form method="POST">
+    <form method="POST">
 
 
 	<div class="form-group">
@@ -57,12 +55,6 @@
 		    <input type="text" name="Zalozyciel" id="zal"  class="form-control" value="">
 		</div>
 	</div>
-        <div class="form-group">
-            <label for="nr" class="col-sm-2 control-label">Liczba graczy:</label>
-		<div class="col-sm-10">
-		    <input type="text" name="Liczba" id="liczba"  class="form-control" value="">
-		</div>
-        </div>
         <div class="form-group">
             <label for="nr" class="col-sm-2 control-label">Link do obrazka:</label>
 		<div class="col-sm-10">

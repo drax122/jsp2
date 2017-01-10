@@ -29,18 +29,17 @@ public class DruzynaResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Druzyna> getAll() {
         return manager.getAll();
-    }
+    }    
     
     @POST
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
     public Druzyna add(
             @FormParam("nazwadruzyny") String nazwa,
-            @FormParam("iloscgraczy") Integer ilosc,
             @FormParam("zalozyciel") String zal,
             @FormParam("img") String img)
     {
-        Druzyna d = new Druzyna(nazwa,zal,ilosc,img);
+        Druzyna d = new Druzyna(nazwa,zal,0,img);
         manager.add(d);
 
         return d;
@@ -52,23 +51,29 @@ public class DruzynaResource {
     public Druzyna view(@PathParam("id") long id) {
     	 return manager.getDruzyna(id);
     }
-    
-    
+        
     @PUT
     @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Druzyna edit(
             @PathParam("id") Long id,
-            @FormParam("lgraczy") Integer ilosc,
             @FormParam("nazwaDruzyny") String nazwa,
             @FormParam("zal") String zal,
             @FormParam("link") String linkd )           
     {
  	Druzyna d = new Druzyna();
 	d = manager.getDruzyna(id);
-	manager.edit(d, nazwa, zal, ilosc, linkd);
+	manager.edit(d, nazwa, zal, linkd);
 
         return d;
+    }
+    
+    @DELETE
+    @Path("/remove/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void delete(@PathParam("id") long id)
+    {
+        manager.del(manager.getDruzyna(id));
     }
       
     

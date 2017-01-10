@@ -23,14 +23,20 @@ public class DruzynaManager {
         lol.flush();
     }
     public Druzyna getDruzyna(Long id) {
+        Druzyna d = lol.find(Druzyna.class, id);
+        d.setLiczbaGraczy(d.getListaGraczy().size());
+        
+        
 	return lol.find(Druzyna.class, id);
     }
-    public void edit(Druzyna druzyna, String nazwaDruzyny, String Zalozyciel, int liczbaGraczy, String img){
+    public void edit(Druzyna druzyna, String nazwaDruzyny, String Zalozyciel, String img){
         druzyna = lol.find(Druzyna.class, druzyna.getId_druzyna());
         druzyna.setImg(img);
-        druzyna.setLiczbaGraczy(liczbaGraczy);
+        Integer d = druzyna.getListaGraczy().size();
+        druzyna.setLiczbaGraczy(d);
         druzyna.setNazwaDruzyny(nazwaDruzyny);
         druzyna.setZalozyciel(Zalozyciel);
+        
         lol.merge(druzyna);
     }
     public void del(Druzyna d){

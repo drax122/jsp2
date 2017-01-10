@@ -35,7 +35,7 @@ public class GraczManager {
         g = lol.find(Gracz.class, g.getId_gracz());
         Druzyna druzyna = lol.find(Druzyna.class, g.getDruzyna().getId_druzyna());
         druzyna.getListaGraczy().remove(g);
-        lol.remove(g);
+        lol.remove(g);        
     }
     public List<Gracz> getAllDruzyna(Long id){
         Druzyna druzyna = lol.find(Druzyna.class, id);   
@@ -45,6 +45,7 @@ public class GraczManager {
     public Gracz getGracz(Long id) {
 	return lol.find(Gracz.class, id);
     }
+
     
     
 }

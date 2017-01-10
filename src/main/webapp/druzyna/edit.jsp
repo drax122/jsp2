@@ -27,7 +27,6 @@
 							{
 								nazwaDruzyny: document.getElementById('nazwa').value,
 								zal: document.getElementById('zal').value,
-								lgraczy: document.getElementById('liczba').value,
 								link: document.getElementById('link').value
 								
 							},
@@ -39,10 +38,7 @@
 				);
 			}
 		);
-	</script>
-       
-       
-       
+	</script>   
     </head>
     <body>
        <jsp:include page="../page/nav.jsp" />
@@ -63,12 +59,6 @@
 		</div>
 	</div>
         <div class="form-group">
-            <label for="nr" class="col-sm-2 control-label">Liczba graczy:</label>
-		<div class="col-sm-10">
-		    <input type="text" name="Liczba" id="liczba"  class="form-control" value="${DruzynaEdit.getLiczbaGraczy()}">
-		</div>
-        </div>
-        <div class="form-group">
             <label for="nr" class="col-sm-2 control-label">Link do obrazka:</label>
 		<div class="col-sm-10">
 		    <input type="text" name="Link" id="link" class="form-control" value="${DruzynaEdit.getImg()}">
@@ -78,11 +68,7 @@
             <button id="edytuj" type="submit" class="btn btn-primary">Edytuj</button>
             <a href="${pageContext.request.contextPath}/ShowDruzyne/?id=${DruzynaEdit.getId_druzyna()}" class="btn btn-default" role="button">Wróć</a>
 	</div>
-        </form>
-       
-       
-       
-       
+        </form>       
     </body>
     <jsp:include page="../page/footer.jsp" />
 </html>

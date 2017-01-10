@@ -19,7 +19,6 @@ public class DeleteGracz extends HttpServlet{
     @EJB
     private GraczManager gm = new GraczManager();
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
@@ -28,6 +27,4 @@ public class DeleteGracz extends HttpServlet{
         gm.del(g);
         request.getRequestDispatcher("/ShowDruzyne/?id="+id2).forward(request, response);
     }
-	
-
 }

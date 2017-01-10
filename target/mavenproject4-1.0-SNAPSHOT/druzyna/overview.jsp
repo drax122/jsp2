@@ -1,11 +1,29 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <html>  
     <head>
         <jsp:include page="../page/head.jsp" />
+        <script>
+		$(document).ready(function()
+			{
+				$( "#remove" ).on('click', function(e)
+					{	
+						e.preventDefault();
+						$.ajax
+						(
+						{
+						    url: '${pageContext.request.contextPath}/rest/druzyna/remove/${id}',
+						    type: 'DELETE',
+						    success: function() { document.location.replace("${pageContext.request.contextPath}/ViewDruzyny.jsp"); }
+						}	
+						);
+					}
+				);
+			}
+		);
+	</script>
         
-         <script>
+                 <script>
 		$(document).ready(function()
 			{	
 			$.ajax
@@ -77,8 +95,10 @@
                                                 link.setAttribute("href", fulllink);
                                                 link.appendChild(span);
                                                 td3.appendChild(link);
+                                               
                                                 
                                                 var td4 = document.createElement("td");
+                                                
                                                 var fulllink2 = '${pageContext.request.contextPath}/DeleteGracz/?id='+ g[i].id_gracz + '&id2=${id}';
                                                 var link2 = document.createElement('a');
                                                 link2.className = 'btn btn-default btn-sm';
@@ -88,7 +108,7 @@
                                                 
                                                 link2.setAttribute("href", fulllink2);
                                                 link2.appendChild(span2);
-                                                td4.appendChild(link2);                                               
+                                                td4.appendChild(link2);                                                  
                                             
                                                 tr.appendChild(td1);
                                                 tr.appendChild(td2);
@@ -104,8 +124,7 @@
 			}
 		);
 	</script>  
-        
-        
+
     </head>
     <body>
         <jsp:include page="../page/nav.jsp" />  
@@ -129,7 +148,7 @@
                 <li class="list-group-item">
                 <p class="text-center">
                 <a href="${pageContext.request.contextPath}/EditDruzyna/?id=${id}" title="Edytuj daną drużynę"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
-                <a href="${pageContext.request.contextPath}/DeleteDruzyna/?id=${id}" title="Usuń drużynę" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span></a>
+                <button id="remove" type="submit" title="Usuń drużynę" class="glyphicon glyphicon-remove"></button>
                 </p>
                 </li>
 
