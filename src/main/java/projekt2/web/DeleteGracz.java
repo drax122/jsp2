@@ -25,6 +25,6 @@ public class DeleteGracz extends HttpServlet{
         Long id2 = Long.parseLong(request.getParameter("id2"));
         Gracz g = gm.getGracz(id);
         gm.del(g);
-        request.getRequestDispatcher("/ShowDruzyne/?id="+id2).forward(request, response);
+        response.sendRedirect("ViewDruzyny.jsp");
     }
 }

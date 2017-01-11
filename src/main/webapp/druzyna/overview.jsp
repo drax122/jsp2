@@ -50,11 +50,11 @@
                                             var l = document.createElement("p");
                                             l.className = 'text-center';
                                             l.innerHTML = w.liczbaGraczy;
-                                            
+                                               
                                             
                                             document.getElementById('Nazwa').appendChild(name);
                                             document.getElementById('Zal').appendChild(z);
-                                            document.getElementById('Liczba').appendChild(l);
+                                            document.getElementById('Liczba').appendChild(l); 
                                             document.getElementById('img').appendChild(link);
                                             }
                                     }   	
@@ -108,7 +108,9 @@
                                                 
                                                 link2.setAttribute("href", fulllink2);
                                                 link2.appendChild(span2);
-                                                td4.appendChild(link2);                                                  
+                                                td4.appendChild(link2);
+                                                
+
                                             
                                                 tr.appendChild(td1);
                                                 tr.appendChild(td2);
