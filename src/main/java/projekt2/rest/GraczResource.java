@@ -79,6 +79,14 @@ public class GraczResource {
     public void delete(@PathParam("id") long id)
     {
         gman.del(gman.getGracz(id));
+    } 
+    
+    @GET
+    @Path("/find/{nickname}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Gracz> find(@PathParam("nickname") String s) {
+    	 return gman.find(s);
     }
+    
     
 }

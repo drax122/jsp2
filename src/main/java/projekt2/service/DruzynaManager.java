@@ -37,7 +37,9 @@ public class DruzynaManager {
         druzyna.setNazwaDruzyny(nazwaDruzyny);
         druzyna.setZalozyciel(Zalozyciel);
         
+        lol.merge(d);
         lol.merge(druzyna);
+        lol.flush();
     }
     public void del(Druzyna d){
         d = lol.find(Druzyna.class, d.getId_druzyna());

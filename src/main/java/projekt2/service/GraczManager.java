@@ -31,13 +31,18 @@ public class GraczManager {
     }
     public void edit(String nickname, Integer Pensja, String Dywizja, Gracz g, Druzyna d){
         g = lol.find(Gracz.class, g.getId_gracz());
-        Druzyna druzyna = lol.find(Druzyna.class, g.getDruzyna().getId_druzyna());
+        
+        Druzyna druzyna = lol.find(Druzyna.class, g.getDruzyna().getId_druzyna()); // Stara d
+        druzyna.getListaGraczy().remove(g);
+        d.getListaGraczy().add(g);
+        
         g.setDywizja(Dywizja);
         g.setNickname(nickname);
         g.setPensja(Pensja);
         g.setDruzyna(d);
         lol.merge(g);
         lol.flush();
+        //Finalne musniecie tutaj / usunac z listy i dodac do listy 
     }
     public void del(Gracz g){
         g = lol.find(Gracz.class, g.getId_gracz());
@@ -54,6 +59,10 @@ public class GraczManager {
     } 
     public Gracz getGracz(Long id) {
 	return lol.find(Gracz.class, id);
+    }
+    public List<Gracz> find(String nick){
+        List<Gracz> a = lol.createNamedQuery("gracz.find").setParameter("nickname", nick).getResultList();
+        return a;
     }
 
     

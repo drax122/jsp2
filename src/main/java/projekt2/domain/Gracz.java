@@ -25,7 +25,8 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "gracz.all", query = "Select g from Gracz g"),
-        @NamedQuery(name = "gracz.allFrom", query = "Select g from Gracz g WHERE g.druzyna = :d")
+        @NamedQuery(name = "gracz.allFrom", query = "Select g from Gracz g WHERE g.druzyna = :d"),
+        @NamedQuery(name = "gracz.find", query = "Select g from Gracz g WHERE g.nickname = :nickname")
 })
 public class Gracz implements Serializable {
     private Long id_gracz;

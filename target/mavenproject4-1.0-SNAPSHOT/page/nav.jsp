@@ -14,4 +14,19 @@
           <a class="nav-link" href="${pageContext.request.contextPath}/ViewDruzyny.jsp">Drużyny</a>
         </li>
       </ul>
+        <ul class ="nav navbar-nav navbar-right">
+        <form action="${pageContext.request.contextPath}/FindGracz/" class="navbar-form" role="search">
+					<div class="input-group">
+						<input type="text" name="nick" id="nick" class="form-control pull-right" placeholder="Wyszukaj gracza po nick`u">
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-default">
+								<span class="glyphicon glyphicon-search">
+									<span class="sr-only">Search</span>
+								</span>
+							</button>
+						</span>
+					</div>
+        </form> 
+        </ul>
+        
 </nav>
